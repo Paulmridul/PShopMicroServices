@@ -7,6 +7,6 @@
         public string Description { get; set; } = default!;
         public List<String> Catagories { get; set; } = new();
         public string ImageUrl { get; set; } = default!;
-        public float price  { get; set; }
+        public decimal Price  { get; set; }
     }
 }
