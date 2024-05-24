@@ -3,9 +3,8 @@ using BuildingBlocks.Exceptions.Handler;
 using Catalog.API.Data;
 using FluentValidation;
 using HealthChecks.UI.Client;
-using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Diagnostics.HealthChecks;
-using Microsoft.AspNetCore.Mvc;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -30,8 +29,8 @@ builder.Services.AddMarten(opt =>
 
 if (builder.Environment.IsDevelopment())
     builder.Services.InitializeMartenWith<CatalogInitialData>();
-builder.Services.AddExceptionHandler<CustomExceptionHandler>();
-builder.Services.AddHealthChecks()
+    builder.Services.AddExceptionHandler<CustomExceptionHandler>();
+    builder.Services.AddHealthChecks()
     .AddNpgSql(builder.Configuration.GetConnectionString("Database")!);
 
 var app = builder.Build();
