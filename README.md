@@ -1,1 +1,2 @@
 # PShopMicroServices
+# installation steps
